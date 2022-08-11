@@ -4,19 +4,12 @@ namespace DependencyInjectionPractice.Models
 {
     public class Dependencies : IOperationTransient, IOperationScoped, IOperationSingleton
     {
-        Guid _guid;
         public Dependencies() : this(Guid.NewGuid())
         {
 
         }
+        public Guid GuidId { get; private set; }
+        public Dependencies(Guid guid) => GuidId = guid;
 
-        public Dependencies(Guid guid)
-        {
-            _guid = guid;
-        }
-
-        public Guid OperationId => _guid;
-
-        public Guid GuidId => throw new NotImplementedException();
     }
 }
